@@ -5,6 +5,7 @@ az vm image list --all --publisher Canonical --architecture x64 --sku 22_10 --ou
 
 az group create --name dev-server --location westeurope
 
+# Will use current username. If you want to use a different username, use --admin-username
 az vm create \
   --resource-group dev-server \
   --name dev-server \
