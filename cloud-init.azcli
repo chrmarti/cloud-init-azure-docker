@@ -1,0 +1,13 @@
+az login
+
+az vm image list --all --publisher Canonical >azure-canonical-images.json
+az vm image list --all --publisher Canonical --architecture x64 --sku 22_10 --output table
+
+az group create --name dev-server --location westeurope
+
+az vm create \
+  --resource-group dev-server \
+  --name dev-server \
+  --image Canonical:0001-com-ubuntu-server-kinetic:22_10-gen2:22.10.202301200 \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys

@@ -1,0 +1,1 @@
+Commands and config to set up an Azure VM with Docker and SSH access.
